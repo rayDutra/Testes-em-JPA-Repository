@@ -103,24 +103,24 @@ public class ClientRepositoryTest {
     public void testarAtualizacaoDeCliente() {
 
         Client cliente = new Client();
-        cliente.setName("Carlos");
-        cliente.setCpf("4324566784");
-        cliente.setIncome(3000.0);
+        cliente.setName("Marcela Almeida");
+        cliente.setCpf("44477799966");
+        cliente.setIncome(3900.0);
         cliente.setBirthDate(Instant.parse("2003-07-01T00:00:00Z"));
 
 
         cliente = clienteRepository.save(cliente);
 
-        cliente.setName("Rayanne");
-        cliente.setIncome(2000.0);
+        cliente.setName("Lucas Fernandes");
+        cliente.setIncome(9800.0);
         cliente.setBirthDate(Instant.parse("1995-05-05T00:00:00Z"));
 
         cliente = clienteRepository.save(cliente);
 
         Optional<Client> clienteAtualizado = clienteRepository.findById(cliente.getId());
         assertTrue(clienteAtualizado.isPresent());
-        assertEquals("Rayanne", clienteAtualizado.get().getName());
-        assertEquals(2000.0, clienteAtualizado.get().getIncome(), 0.001);
+        assertEquals("Lucas Fernandes", clienteAtualizado.get().getName());
+        assertEquals(9800.0, clienteAtualizado.get().getIncome(), 0.001);
         assertEquals(Instant.parse("1995-05-05T00:00:00Z"), clienteAtualizado.get().getBirthDate());
     }
 
